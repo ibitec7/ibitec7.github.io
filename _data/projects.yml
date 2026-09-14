@@ -10,6 +10,7 @@
   language: "Python"
   subtitle: "SDSC 2005 · Introduction to Computational Social Science · City University of Hong Kong"
   show_on_home: true
+  image: "/assets/images/projects/migration-f1-by-horizon.png"
   tags: [Time series, NLP, TensorRT, cuML, Polars]
   summary: >-
     An early warning system for US visa-issuance surges that fuses 170k+ news
