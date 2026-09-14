@@ -1,0 +1,54 @@
+{%- comment -%}
+Brand-coloured profile links. Each icon keeps its own logo shape (Font Awesome
+brand glyphs for LinkedIn and ORCID) or, for GitHub, the official mark drawn
+inline so it can invert: dark ring with a light cat in light mode, and the
+reverse in dark mode. The cat is a hole in the ring, so it always shows the
+card behind it.
+{%- endcomment -%}
+{%- assign compact = include.compact -%}
+{%- assign pad = 'pr-3' -%}
+{%- if compact -%}{%- assign pad = 'px-1' -%}{%- endif -%}
+{%- assign icon_class = 'social-icon' -%}
+{%- if compact -%}{%- assign icon_class = 'social-icon social-icon-compact' -%}{%- endif -%}
+
+{% if site.data.profile.github %}
+<a class="{{ pad }} no-break social-link social-link-github" target="_blank" rel="me" href="https://github.com/{{ site.data.profile.github }}" aria-label="GitHub" title="GitHub">
+    <svg class="{{ icon_class }} social-icon-github" viewBox="0 0 16 16" role="img" aria-hidden="true" focusable="false"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+    {%- unless compact %} GitHub{% endunless %}
+</a>
+{% endif %}
+
+{% if site.data.profile.gscholar %}
+{%- if site.data.profile.gscholar contains 'scholar.google' -%}
+{%- assign gscholar_url = site.data.profile.gscholar -%}
+{%- else -%}
+{%- assign gscholar_url = 'https://scholar.google.com/citations?user=' | append: site.data.profile.gscholar -%}
+{%- endif -%}
+<a class="{{ pad }} no-break social-link social-link-scholar" target="_blank" rel="me" href="{{ gscholar_url }}" aria-label="Google Scholar" title="Google Scholar">
+    <i class="fab fa-google-scholar {{ icon_class }}"></i>{%- unless compact %} Google Scholar{% endunless %}
+</a>
+{% endif %}
+
+{% if site.data.profile.linkedin %}
+<a class="{{ pad }} no-break social-link social-link-linkedin" target="_blank" rel="me" href="https://www.linkedin.com/in/{{ site.data.profile.linkedin }}" aria-label="LinkedIn" title="LinkedIn">
+    <i class="fab fa-linkedin {{ icon_class }}"></i>{%- unless compact %} LinkedIn{% endunless %}
+</a>
+{% endif %}
+
+{% if site.data.profile.orcid %}
+<a class="{{ pad }} no-break social-link social-link-orcid" target="_blank" rel="me" href="https://orcid.org/{{ site.data.profile.orcid }}" aria-label="ORCID" title="ORCID">
+    <i class="fab fa-orcid {{ icon_class }}"></i>{%- unless compact %} ORCID{% endunless %}
+</a>
+{% endif %}
+
+{% if site.data.profile.twitter %}
+<a class="{{ pad }} no-break social-link" target="_blank" rel="me" href="https://twitter.com/{{ site.data.profile.twitter }}" aria-label="Twitter" title="Twitter">
+    <i class="fab fa-twitter {{ icon_class }}"></i>{%- unless compact %} Twitter{% endunless %}
+</a>
+{% endif %}
+
+{% if site.data.profile.wechat_qrcode %}
+<a class="{{ pad }} no-break social-link" data-toggle="modal" data-target="#modal-wechat" role="button" aria-label="WeChat" title="WeChat">
+    <i class="fab fa-weixin {{ icon_class }}"></i>{%- unless compact %} WeChat{% endunless %}
+</a>
+{% endif %}

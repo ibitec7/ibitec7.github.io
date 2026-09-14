@@ -1,13 +1,80 @@
 @charset "utf-8";
+
+/* ==========================================================================
+   Palette
+   Light is the default. `html[data-theme="dark"]` is applied by
+   assets/js/theme.js, and the values below are mirrored for readers whose OS
+   asks for dark before they have made a choice.
+   ========================================================================== */
+
+:root {
+    --page-bg: #f8f9fa;
+    --surface: #ffffff;
+    --surface-alt: #f1f3f5;
+    --text: #212529;
+    --text-muted: #6c757d;
+    --border: rgba(0, 0, 0, 0.08);
+    --border-strong: #dee2e6;
+    --navbar-bg: rgba(255, 255, 255, 0.62);
+    --link: #007bff;
+    --link-hover: #0056b3;
+    --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --shadow-md: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.10);
+    --gh-ring: #212529;
+    --gh-cat: #ffffff;
+    --code-bg: #f1f3f5;
+    --highlight: #fff8e1;
+    --highlight-border: #ffd54f;
+}
+
+html[data-theme="dark"] {
+    --page-bg: #0d1117;
+    --surface: #161b22;
+    --surface-alt: #1c2129;
+    --text: #e6edf3;
+    --text-muted: #9aa5b1;
+    --border: rgba(240, 246, 252, 0.10);
+    --border-strong: #30363d;
+    --navbar-bg: rgba(13, 17, 23, 0.72);
+    --link: #6ea8ff;
+    --link-hover: #9cc4ff;
+    --shadow-sm: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.45);
+    --shadow-md: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.55);
+    --gh-ring: #e6edf3;
+    --gh-cat: #161b22;
+    --code-bg: #1c2129;
+    --highlight: #2a2411;
+    --highlight-border: #8a6d1f;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
 body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
     padding-top: 5.0rem;
+    background-color: var(--page-bg);
+    color: var(--text);
+}
+
+body.bg-light {
+    background-color: var(--page-bg) !important;
+}
+
+a {
+    color: var(--link);
+}
+
+a:hover {
+    color: var(--link-hover);
 }
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
     font-weight: 700;
+    color: var(--text);
 }
 
 .card {
@@ -32,7 +99,6 @@ h1, h2, h3, h4, h5, h6,
     border-top-right-radius: 0.8rem !important;
 }
 
-
 .text-profile-position {
     font-weight: 400;
 }
@@ -40,12 +106,6 @@ h1, h2, h3, h4, h5, h6,
 .text-profile-bio {
     /* font-family: "Raleway"; */
     font-weight: 400;
-}
-
-.navbar {
-    background-color: rgba(255, 255, 255, 0.6) !important;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
 }
 
 .inline-badge {
@@ -90,4 +150,352 @@ div.lazy {
 
 .email-text {
     font-family: Source Code Pro, monospace;
+}
+
+/* ==========================================================================
+   Surfaces, borders and Bootstrap overrides (light + dark)
+   ========================================================================== */
+
+.card,
+.bg-white,
+.modal-content {
+    background-color: var(--surface) !important;
+    border-color: var(--border) !important;
+    color: var(--text);
+}
+
+.shadow-sm {
+    box-shadow: var(--shadow-sm) !important;
+}
+
+.shadow {
+    box-shadow: var(--shadow-md) !important;
+}
+
+hr {
+    border-top-color: var(--border-strong);
+}
+
+.border-top,
+.border-bottom,
+.border,
+.border-gray {
+    border-color: var(--border-strong) !important;
+}
+
+.text-muted,
+.text-muted a,
+.small.text-muted {
+    color: var(--text-muted) !important;
+}
+
+.text-body {
+    color: var(--text) !important;
+}
+
+mark {
+    background-color: var(--highlight);
+    border-bottom: 1px solid var(--highlight-border);
+    color: var(--text);
+    padding: 0 2px;
+}
+
+code, kbd, pre, samp {
+    background-color: var(--code-bg);
+    color: var(--text);
+}
+
+pre {
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border);
+    overflow-x: auto;
+}
+
+.form-control,
+input,
+textarea,
+select {
+    background-color: var(--surface);
+    border-color: var(--border-strong);
+    color: var(--text);
+}
+
+.btn-outline-secondary {
+    color: var(--text);
+    border-color: var(--border-strong);
+}
+
+.table {
+    color: var(--text);
+}
+
+.alert-warning {
+    background-color: var(--highlight);
+    border-color: var(--highlight-border);
+    color: var(--text);
+}
+
+.nav-pills .nav-link {
+    color: var(--text-muted);
+}
+
+.nav-pills .nav-link.active {
+    background-color: var(--link);
+    color: #fff;
+}
+
+.footer {
+    background-color: var(--surface) !important;
+    border-top-color: var(--border-strong) !important;
+}
+
+.footer .text-muted {
+    color: var(--text-muted) !important;
+}
+
+/* Publication / blog item on small screens: the overlay used to be hard-coded
+   white, which is unreadable once the theme flips. */
+.item-overlay-mobile {
+    background-color: var(--surface) !important;
+}
+
+/* ==========================================================================
+   Navbar + theme toggle
+   ========================================================================== */
+
+.navbar {
+    background-color: var(--navbar-bg) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar-light .navbar-brand,
+.navbar-light .navbar-brand:hover {
+    color: var(--text);
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: var(--text-muted);
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:focus {
+    color: var(--text);
+}
+
+.navbar-light .navbar-nav .nav-item.active .nav-link {
+    color: var(--link) !important;
+    font-weight: 700;
+}
+
+.navbar-light .navbar-toggler {
+    color: var(--text-muted);
+    border-color: var(--border-strong);
+}
+
+.navbar-tools {
+    flex: none;
+}
+
+.theme-toggle {
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 1px solid var(--border-strong);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--text-muted);
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus {
+    color: var(--text);
+    border-color: var(--text-muted);
+    background-color: var(--surface);
+    outline: none;
+}
+
+.theme-toggle i {
+    font-size: 0.85rem;
+}
+
+/* Light mode offers the moon (switch to dark); dark mode offers the sun. */
+.theme-toggle .theme-toggle-sun {
+    display: none;
+}
+
+html[data-theme="dark"] .theme-toggle .theme-toggle-moon {
+    display: none;
+}
+
+html[data-theme="dark"] .theme-toggle .theme-toggle-sun {
+    display: inline-block;
+}
+
+/* ==========================================================================
+   Social logos
+   ========================================================================== */
+
+.social-link {
+    display: inline-block;
+    vertical-align: middle;
+    text-decoration: none !important;
+}
+
+.social-icon {
+    height: 1em;
+    width: 1em;
+    vertical-align: -0.125em;
+    display: inline-block;
+}
+
+.social-icon-compact {
+    height: 1.05em;
+    width: 1.05em;
+}
+
+/* GitHub: the official mark, filled with the current text colour. The cat is a
+   cut-out, so it always shows the card behind it: dark badge with a light cat
+   in light mode, and the reverse in dark mode. */
+.social-icon-github {
+    fill: var(--gh-ring);
+}
+
+.social-link-github {
+    color: var(--gh-ring);
+}
+
+/* LinkedIn and ORCID keep their official brand colours in both themes. */
+.social-link-linkedin,
+.social-link-linkedin:hover {
+    color: #0a66c2;
+}
+
+.social-link-orcid,
+.social-link-orcid:hover {
+    color: #a6ce39;
+}
+
+.social-row .social-link {
+    margin: 0 0.25rem;
+}
+
+/* ==========================================================================
+   Project showcase
+   ========================================================================== */
+
+.project-item + .project-item {
+    border-top: 1px solid var(--border-strong);
+}
+
+.project-figure {
+    overflow: hidden;
+    border-radius: 0.6rem;
+    background-color: #ffffff;
+    border: 1px solid var(--border);
+}
+
+.project-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* A figure lifted from a paper or notebook keeps its own white page, so give it
+   an explicit matte instead of letting it float on the dark surface. */
+.project-figure-detail {
+    max-width: 800px;
+}
+
+.project-tags {
+    margin: 0.35rem 0 0.5rem;
+}
+
+.project-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background-color: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.1rem 0.5rem;
+    margin: 0 0.25rem 0.25rem 0;
+}
+
+.project-tag-primary {
+    color: #fff;
+    background-color: var(--link);
+    border-color: var(--link);
+}
+
+.project-metrics {
+    margin: 0.5rem 0 0.5rem;
+    padding: 0;
+    list-style: none;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.project-metrics li {
+    margin-bottom: 0.1rem;
+}
+
+.project-metrics i {
+    width: 1rem;
+    color: var(--link);
+}
+
+.project-snippet {
+    font-family: Source Code Pro, monospace;
+    font-size: 0.72rem;
+    line-height: 1.35;
+    background-color: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    padding: 0.6rem 0.75rem;
+    margin: 0.5rem 0 0;
+    white-space: pre;
+    overflow-x: auto;
+    color: var(--text);
+}
+
+.project-links {
+    font-size: 0.9rem;
+}
+
+.project-links a {
+    margin-right: 0.85rem;
+    white-space: nowrap;
+}
+
+.project-summary {
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   News
+   ========================================================================== */
+
+.news-flag {
+    color: var(--highlight-border);
+    margin-right: 0.35rem;
+}
+
+html[data-theme="dark"] .news-flag {
+    color: #e3b341;
+}
+
+.news-item-highlight {
+    font-weight: 700;
 }

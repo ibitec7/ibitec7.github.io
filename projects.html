@@ -1,0 +1,28 @@
+---
+layout: default
+title: Projects
+navbar_title: Projects
+---
+
+<div class="row">
+    <div class="col-12">
+        <div class="my-3 p-0 bg-white shadow-sm rounded-xl">
+            <h6 class="border-bottom border-gray p-3 mb-0">
+                <i class="fas fa-code-branch"></i> Projects
+                <a class="float-right" href="https://github.com/{{ site.data.profile.github }}?tab=repositories" target="_blank" rel="noopener">all repositories <i class="fas fa-angle-double-right"></i></a>
+            </h6>
+            <div class="px-4 pb-2">
+                {% for item in site.data.projects %}
+                    {% include widgets/project_item.html item=item detailed=true %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <p class="small text-muted">
+            Research projects with a paper are listed under
+            <a href="{{ 'publications' | relative_url }}">publications</a>;
+            everything else I have built in the open lives on
+            <a href="https://github.com/{{ site.data.profile.github }}" target="_blank" rel="noopener">GitHub</a>.
+        </p>
+    </div>
+</div>

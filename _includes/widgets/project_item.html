@@ -1,0 +1,58 @@
+{% assign item = include.item %}
+<div class="project-item row no-gutters py-4">
+    {% if item.image %}
+    <div class="col-md-4 col-xl-3 pr-md-3 mb-3 mb-md-0">
+        <div class="project-figure">
+            <img data-src="{{ item.image | relative_url }}" alt="{{ item.name }}" class="lazy w-100" src="{{ '/assets/images/empty_300x200.png' | relative_url }}">
+        </div>
+    </div>
+    <div class="col-md-8 col-xl-9{% if item.image %} pl-md-0{% endif %}">
+    {% else %}
+    <div class="col-12">
+    {% endif %}
+        <div class="d-flex flex-wrap align-items-baseline">
+            <h5 class="mt-0 mb-1 font-weight-normal">{{ item.name }}</h5>
+            {% if item.language %}
+            <span class="ml-auto project-tag">{{ item.language }}</span>
+            {% endif %}
+        </div>
+
+        {% if item.subtitle %}
+        <p class="mt-0 mb-1 small text-muted">{{ item.subtitle }}</p>
+        {% endif %}
+
+        {% if item.tags %}
+        <div class="project-tags">
+            {% for tag in item.tags %}<span class="project-tag">{{ tag }}</span>{% endfor %}
+        </div>
+        {% endif %}
+
+        <p class="mt-0 mb-0 project-summary">{{ item.summary }}</p>
+
+        {% if include.detailed and item.metrics %}
+        <ul class="project-metrics">
+            {% for metric in item.metrics %}
+            <li><i class="fas fa-angle-right"></i> {{ metric }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        {% if include.detailed and item.figure_secondary %}
+        <div class="project-figure project-figure-detail my-3">
+            <img data-src="{{ item.figure_secondary | relative_url }}" alt="{{ item.name }} — additional figure" class="lazy w-100" src="{{ '/assets/images/empty_300x200.png' | relative_url }}">
+        </div>
+        {% endif %}
+
+        {% if item.links %}
+        <p class="project-links mb-0 mt-2">
+            {% for link in item.links %}
+            <a href="{{ link[1] }}" target="_blank" rel="noopener">[{{ link[0] }}]</a>
+            {% endfor %}
+        </p>
+        {% endif %}
+
+        {% if include.detailed and item.snippet %}
+        <pre class="project-snippet">{{ item.snippet }}</pre>
+        {% endif %}
+    </div>
+</div>

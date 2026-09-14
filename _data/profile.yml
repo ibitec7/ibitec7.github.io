@@ -1,61 +1,58 @@
-primary_name: "Your Name"
+primary_name: "Syed Ibrahim Omer"
 secondary_name: ""
-navbar_name: "Your Name"
+navbar_name: "Syed Ibrahim Omer"
 
 positions:
-- name: Title or Position
-- name: Affiliation Name
-  logo: /assets/images/badges/MIT_Social_circle.png  # Logo is optional
+- name: Undergraduate Student
+- name: City University of Hong Kong
+  logo: /assets/images/badges/cityu.png  # Logo is optional
 
 
-email: "your@email.com"
+email: "ibrahsyed2-c@my.cityu.edu.hk"
 # cv_link: link-to-your-cv-file
-gscholar: xFmQpf4AAAAJ  # This is an example, replace it with your own Google Scholar ID
-github: your_github_id
-twitter: your_twitter_id  # Do not include the '@' symbol
+gscholar: s3JJuo8AAAAJ&hl  # This is an example, replace it with your own Google Scholar ID
+github: ibitec7
+# twitter: your_twitter_id  # Do not include the '@' symbol
 # wechat_qrcode: /assets/images/etc/wechat.jpg
 # wechat_prompt: >-
 #   Please tell me your <strong>name</strong> and <strong>affiliation</strong> (current or past) when adding my wechat. Thanks!
-# linkedin: your-linked-in-id
-# orcid: 0000-0000-0000-0000
+linkedin: ibitec7
+orcid: 0009-0004-6630-5402
 
-short_bio_text_justify: false
+short_bio_text_justify: true
 short_bio: >-
   <p>
-    A <a href="https://en.wikipedia.org/wiki/Bicolor_cat" target="_blank">bicolor cat</a> is a cat with white fur combined with fur of some other colour, for example solid black, tabby, or colourpointed.
-  </p>
-  <p>
-    There are various patterns of a bicolour cat. These range from the Van-patterned (colour on the crown of the head 
-    and the tail only) to a solid colour with a throat locket or medallion. Bicolour coats are found in many cat breeds, 
-    as well as being common in domestic longhair and domestic shorthair cats.
+    I am an undergraduate researcher in Data Science at the City University of Hong Kong and a research-track Student Ambassador at the NVIDIA AI Technology Center Hong Kong. I study neural architectures at the operator level: what each operator does to its inputs under the data's native measure, rather than where its parameters sit in a coordinate frame. That view covers problems which otherwise look separate, including context conditioning, low-bit quantization, MoE routing, model compression, and behavioural bounds. It replaces weight-space distance proxies with operator action as the invariant a transformation must respect, so a modification carries a guarantee rather than an empirical hope.
   </p>
 
 portrait_url: /assets/images/photos/portrait.jpg
-portrait_caption: >-
-  Photo by Manja Vitolic on Unsplash (this caption is optional, comment it out to disable).
+#portrait_caption: >-
+ # Photo by Manja Vitolic on Unsplash (this caption is optional, comment it out to disable).
 
 education:
-- name: Massachusetts Institute of Technology
-  logo: /assets/images/badges/MIT_Social_circle.png
-  position: >- 
-    Department of Electrical Engineering and Computer Science <br/>
-    Ph.D. Student
-  date: Sep. 2024 - present
-- name: Peking University
-  logo: /assets/images/badges/PKU_red.png
-  position: B.S. in Computer Science
-  date: Sep. 2019 - Jul. 2021
+# - name: City University of Hong Kong
+#   logo: /assets/images/badges/MIT_Social_circle.png
+#   position: >- 
+#     Department of Electrical Engineering and Computer Science <br/>
+#     Ph.D. Student
+#   date: Sep. 2024 - present
+- name: City University of Hong Kong
+  logo: /assets/images/badges/cityu.png
+  position: B.S. in Data Science
+  date: Aug. 2024 - Jun. 2028 (Expected)
 
-# experience:
-# - name: Peking University
-#   logo: /assets/images/badges/PKU_red.png
-#   position: Research Intern
-#   date: Sep. 2019 - Jul. 2021
+experience:
+- name: NVIDIA AI Technology Center Hong Kong
+  logo: /assets/images/badges/nvidia.png
+  position: Student Ambassador (Research Track)
+  date: Jun. 2025 - Present
 
 awards:
-- name: Award Name 2
+- name: 100% Academic Scholarship
   date: 2024
-- name: Award Name 1 
-  date: 2021
-- name: A quick brown fox jumps over the lazy dog and runs away award
-  date: 2021
+- name: Dean's List
+  date: 2024
+- name: Diversity Grant Recipient
+  date: 2024
+- name: Tiger Programme Member
+  date: 2024

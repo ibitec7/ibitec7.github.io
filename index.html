@@ -12,10 +12,6 @@ navbar_title: Home
 
         {% include widgets/profile_card_bio_only.html %}
 
-        <!-- Debugging widgets -->
-        {% include widgets/debug_repo_name.html %}
-        {% include widgets/debug_url.html %}
-
         {% if site.data.display.homepage.show_experience %}
             {% include widgets/experience_card.html %}
         {% endif %}
@@ -34,6 +30,10 @@ navbar_title: Home
         publications=pubs
         title='<i class="fas fa-star"></i> Selected Publications'
         %}
+        {% endif %}
+
+        {% if site.data.display.homepage.show_projects %}
+        {% include widgets/projects_card.html limit=site.data.display.homepage.num_projects %}
         {% endif %}
     </div>
 </div>
