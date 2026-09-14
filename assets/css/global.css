@@ -315,6 +315,30 @@ select {
     transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out, background-color 0.15s ease-in-out;
 }
 
+/* Pinned to the far right corner of the bar, outside the centred content
+   column, so it never reads as another navigation item. */
+.navbar > .theme-toggle {
+    position: absolute;
+    top: 0.75rem;
+    right: 1.75rem;
+}
+
+/* On narrow screens the Menu button sits at the container's right edge, so keep
+   the content clear of the corner control. */
+@media (max-width: 575.98px) {
+    .navbar > .container,
+    .navbar > .container-lg,
+    .navbar > .container-md,
+    .navbar > .container-sm,
+    .navbar > .container-xl {
+        padding-right: 3.75rem;
+    }
+
+    .navbar > .theme-toggle {
+        right: 0.75rem;
+    }
+}
+
 .theme-toggle:hover,
 .theme-toggle:focus {
     color: var(--text);
@@ -389,6 +413,21 @@ html[data-theme="dark"] .theme-toggle .theme-toggle-sun {
 }
 
 /* ==========================================================================
+   Portrait
+   ========================================================================== */
+
+.portrait-round {
+    width: 100%;
+    max-width: 230px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center 22%;
+    border-radius: 50%;
+    border: 1px solid var(--border-strong);
+    display: inline-block;
+}
+
+/* ==========================================================================
    Project showcase
    ========================================================================== */
 
@@ -454,20 +493,6 @@ html[data-theme="dark"] .theme-toggle .theme-toggle-sun {
 .project-metrics i {
     width: 1rem;
     color: var(--link);
-}
-
-.project-snippet {
-    font-family: Source Code Pro, monospace;
-    font-size: 0.72rem;
-    line-height: 1.35;
-    background-color: var(--code-bg);
-    border: 1px solid var(--border);
-    border-radius: 0.5rem;
-    padding: 0.6rem 0.75rem;
-    margin: 0.5rem 0 0;
-    white-space: pre;
-    overflow-x: auto;
-    color: var(--text);
 }
 
 .project-links {

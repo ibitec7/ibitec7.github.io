@@ -6,12 +6,10 @@
 # Public, non-publication work only: anything that already has a paper entry
 # lives in _publications instead.
 
-- name: "Migration Surge Prediction — Early Warning System"
+- name: "Migration Surge Prediction: An Early Warning System"
   language: "Python"
   subtitle: "SDSC 2005 · Introduction to Computational Social Science · City University of Hong Kong"
   show_on_home: true
-  image: "/assets/images/projects/migration-f1-by-horizon.png"
-  figure_secondary: "/assets/images/projects/migration-visa-encounters.png"
   tags: [Time series, NLP, TensorRT, cuML, Polars]
   summary: >-
     An early warning system for US visa-issuance surges that fuses 170k+ news
@@ -29,6 +27,22 @@
     Code: "https://github.com/ibitec7/migration"
     Datasets: "https://huggingface.co/sdsc2005-migration"
 
+- name: "NVIDIA Stock Analysis Dashboard"
+  language: "Python"
+  subtitle: "Streamlit and Plotly dashboard with LLM-backed signals"
+  show_on_home: true
+  image: "/assets/images/projects/stock-analysis-poster.png"
+  tags: [Fintech, LLM, Sentiment, Data fusion]
+  summary: >-
+    Fuses ten years of NVDA price history with 7,000+ collected news articles
+    into sentiment-driven signals, technical overlays and hypothetical trade
+    analysis. Sentiment runs through FinBERT and VADER, the technical layer
+    through the indicators-cli package, and the narrative layer through an LLM.
+  metrics:
+    - "Market data, news sentiment, technical indicators and trade simulation in one view"
+  links:
+    Code: "https://github.com/ibitec7/stock"
+
 - name: "Indicators CLI"
   language: "Python"
   subtitle: "Open-source command-line tool, published on PyPI"
@@ -42,9 +56,6 @@
   metrics:
     - "9 indicators (SMA, EMA, MACD, RSI, Bollinger, ATR, OBV, ROC, Stochastic)"
     - "Batch tickers, custom configs, templates and optional GPU path"
-  snippet: |-
-    $ pip install indicators-cli
-    $ indicators AAPL MSFT NVDA -p 2y -t 1wk -f parquet
   links:
     PyPI: "https://pypi.org/project/indicators-cli/"
     Code: "https://github.com/ibitec7/indicators-cli"
@@ -59,34 +70,14 @@
     replaces it with a configurable Rust producer/consumer fleet on Kafka,
     deployed to Kubernetes through ConfigMaps, so a simulation can be scaled to
     any stream rate and wired into other microservices.
-  snippet: |-
-    $ minikube start --vm-driver=docker --cpus=6 --memory=10g
-    $ kubectl apply -f deployment/kafka/
-    $ kubectl apply -f deployment/producer/
-    $ kubectl apply -f deployment/consumer/
   links:
     Code: "https://github.com/ibitec7/iot-simulator"
 
-- name: "NVIDIA Stock Analysis Dashboard"
-  language: "Python"
-  subtitle: "Streamlit and Plotly dashboard with LLM-backed signals"
-  show_on_home: true
-  tags: [Fintech, LLM, Sentiment, Data fusion]
-  summary: >-
-    Fuses ten years of NVDA price history with 7,000+ collected news articles
-    into sentiment-driven signals, technical overlays and hypothetical trade
-    analysis. Sentiment runs through FinBERT and VADER, the technical layer
-    through the indicators-cli package, and the narrative layer through an LLM.
-  metrics:
-    - "Market data, news sentiment, technical indicators and trade simulation in one view"
-  links:
-    Code: "https://github.com/ibitec7/stock"
-
-- name: "SMS Scam Detection — MLOps Pipeline"
+- name: "SMS Scam Detection: MLOps Pipeline"
   language: "Jupyter Notebook"
   subtitle: "Tracked, reproducible classification experiments"
   show_on_home: false
-  image: "/assets/images/projects/sms-scams-roc-curve.png"
+  image: "/assets/images/projects/sms-spam-detection-poster.png"
   tags: [MLOps, NLP, Scikit-learn, MLflow]
   summary: >-
     An end-to-end pipeline over 5,574 labelled SMS messages that compares five
@@ -102,6 +93,7 @@
   language: "Jupyter Notebook"
   subtitle: "GE2260 · Introduction to Finance · City University of Hong Kong"
   show_on_home: false
+  image: "/assets/images/projects/portfolio-optimization-poster.png"
   tags: [Quantitative finance, Statistics, Markowitz, Monte Carlo]
   summary: >-
     Constructs a 60/40 fixed-income and growth portfolio from five years of
@@ -114,4 +106,5 @@
     - "Diversification verified across a five-year correlation matrix"
   links:
     Report (PDF): "/assets/docs/portfolio-analysis-ge2260.pdf"
+    Video: "https://drive.google.com/file/d/1B-Y17R-3CZmWDVcAB368evj0cL1ToSFe/view?usp=sharing"
     Code: "https://github.com/ibitec7/portfolio"

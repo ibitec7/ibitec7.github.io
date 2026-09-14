@@ -6,7 +6,7 @@
             <img data-src="{{ item.image | relative_url }}" alt="{{ item.name }}" class="lazy w-100" src="{{ '/assets/images/empty_300x200.png' | relative_url }}">
         </div>
     </div>
-    <div class="col-md-8 col-xl-9{% if item.image %} pl-md-0{% endif %}">
+    <div class="col-md-8 col-xl-9 pl-md-0">
     {% else %}
     <div class="col-12">
     {% endif %}
@@ -39,7 +39,7 @@
 
         {% if include.detailed and item.figure_secondary %}
         <div class="project-figure project-figure-detail my-3">
-            <img data-src="{{ item.figure_secondary | relative_url }}" alt="{{ item.name }} — additional figure" class="lazy w-100" src="{{ '/assets/images/empty_300x200.png' | relative_url }}">
+            <img data-src="{{ item.figure_secondary | relative_url }}" alt="{{ item.name }} (additional figure)" class="lazy w-100" src="{{ '/assets/images/empty_300x200.png' | relative_url }}">
         </div>
         {% endif %}
 
@@ -49,10 +49,6 @@
             <a href="{{ link[1] }}" target="_blank" rel="noopener">[{{ link[0] }}]</a>
             {% endfor %}
         </p>
-        {% endif %}
-
-        {% if include.detailed and item.snippet %}
-        <pre class="project-snippet">{{ item.snippet }}</pre>
         {% endif %}
     </div>
 </div>
