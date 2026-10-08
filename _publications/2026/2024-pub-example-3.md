@@ -18,7 +18,7 @@ authors:
   - Xiangyu Zhao
 links:
   Paper: https://arxiv.org/pdf/2610.09092
-  arXiv: https://arxiv.org/abs/2610.09092
+  ProjectPage: https://ibitec7.github.io/mark/
   Code: https://github.com/ibitec7/mark
   OpenReview: https://openreview.net/forum?id=yIjFWwvG7b#discussion
 ---
