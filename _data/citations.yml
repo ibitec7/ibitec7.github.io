@@ -2,17 +2,17 @@
 # Refresh with:  python3 scripts/fetch_google_scholar_citations.py
 source: google_scholar
 scholar_id: "s3JJuo8AAAAJ"
-generated_at: "2026-09-20T11:21:28Z"
+generated_at: "2026-10-08T16:24:11Z"
 profile:
   name: "Syed Ibrahim Omer"
-  cited_by: 3
+  cited_by: 4
   h_index: 1
   i10_index: 0
   url: "https://scholar.google.com/citations?user=s3JJuo8AAAAJ&hl=en"
 papers:
   "Redefining Hybrid Blockchains: A Balanced Architecture":
     scholar_title: "Redefining hybrid blockchains: A balanced architecture"
-    citations: 3
+    citations: 4
     year: "2025"
     authors: "SI Omer"
     venue: "arXiv preprint arXiv:2504.18966, 2025"
