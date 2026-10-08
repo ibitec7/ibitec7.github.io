@@ -48,6 +48,7 @@
   language: "Python"
   subtitle: "Open-source command-line tool, published on PyPI"
   show_on_home: false
+  image: "/assets/images/projects/pypi-indicators-cli.png"
   tags: [CLI, ETL, Finance, PyPI, Testing]
   summary: >-
     Fetches historical prices from Yahoo Finance and computes nine technical
@@ -65,6 +66,7 @@
   language: "Rust"
   subtitle: "Open-source Kubernetes and Kafka deployment"
   show_on_home: false
+  image: "/assets/images/projects/iot-sensor-simulator.png"
   tags: [Rust, Kafka, Kubernetes, Microservices]
   summary: >-
     Live IoT sensor data is scarce and usually paywalled. This project
