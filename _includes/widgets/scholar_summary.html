@@ -1,0 +1,29 @@
+{%- comment -%}
+Compact Google Scholar profile strip (total citations, h-index, i10-index).
+
+Rendered from _data/citations.yml, which
+`python3 scripts/fetch_google_scholar_citations.py` regenerates. Renders nothing
+when the data file is missing, so a fresh clone still builds.
+{%- endcomment -%}
+{%- assign scholar = site.data.citations -%}
+{%- assign scholar_url = scholar.profile.url -%}
+{%- if scholar_url == nil or scholar_url == '' -%}
+    {%- if site.data.profile.gscholar contains 'scholar.google' -%}
+        {%- assign scholar_url = site.data.profile.gscholar -%}
+    {%- else -%}
+        {%- assign scholar_url = 'https://scholar.google.com/citations?user=' | append: site.data.profile.gscholar -%}
+    {%- endif -%}
+{%- endif -%}
+{%- if scholar.profile.cited_by or scholar.profile.h_index -%}
+<div class="scholar-summary d-flex flex-wrap align-items-center">
+    <a class="scholar-summary-brand" href="{{ scholar_url }}" target="_blank" rel="me" title="Google Scholar profile">
+        <i class="fab fa-google-scholar" aria-hidden="true"></i>Google Scholar
+    </a>
+    <span class="scholar-stat"><b>{{ scholar.profile.cited_by | times: 1 }}</b> citations</span>
+    <span class="scholar-stat"><b>{{ scholar.profile.h_index | times: 1 }}</b> h-index</span>
+    <span class="scholar-stat"><b>{{ scholar.profile.i10_index | times: 1 }}</b> i10-index</span>
+    {%- if scholar.generated_at -%}
+    <span class="scholar-summary-updated">synced {{ scholar.generated_at | date: "%b %-d, %Y" }}</span>
+    {%- endif -%}
+</div>
+{%- endif -%}

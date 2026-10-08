@@ -148,6 +148,106 @@ div.lazy {
     font-size: 100%;
 }
 
+/* ==========================================================================
+   Google Scholar citations
+   ========================================================================== */
+
+.citation-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.05rem 0.55rem 0.05rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.7;
+    white-space: nowrap;
+    color: var(--link);
+    background-color: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    text-decoration: none;
+    vertical-align: 0.08em;
+    transition: color 0.15s ease, background-color 0.15s ease,
+                border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.citation-badge i {
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+.citation-badge-text {
+    font-weight: 400;
+    color: var(--text-muted);
+}
+
+.citation-badge-count {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+}
+
+.citation-badge:hover,
+.citation-badge:focus-visible {
+    color: var(--link-hover);
+    background-color: var(--surface);
+    border-color: var(--link);
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+.citation-badge:hover .citation-badge-text,
+.citation-badge:focus-visible .citation-badge-text {
+    color: var(--text);
+}
+
+.scholar-summary {
+    gap: 0.25rem 0.9rem;
+    padding: 0.55rem 0.95rem;
+    margin: 0.5rem 0 0.25rem;
+    font-size: 0.9rem;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.scholar-summary-brand {
+    font-weight: 700;
+    color: var(--text);
+}
+
+.scholar-summary-brand:hover,
+.scholar-summary-brand:focus {
+    color: var(--link);
+    text-decoration: none;
+}
+
+.scholar-summary-brand i {
+    margin-right: 0.35rem;
+    color: #4285f4;
+}
+
+html[data-theme="dark"] .scholar-summary-brand i {
+    color: #8ab4f8;
+}
+
+.scholar-stat {
+    color: var(--text-muted);
+}
+
+.scholar-stat b {
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+}
+
+.scholar-summary-updated {
+    margin-left: auto;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    opacity: 0.85;
+}
+
 .email-text {
     font-family: Source Code Pro, monospace;
 }
@@ -523,4 +623,119 @@ html[data-theme="dark"] .news-flag {
 
 .news-item-highlight {
     font-weight: 700;
+}
+
+/* ==========================================================================
+   Mobile refinements
+   The desktop grid is dense; on phones the same content needs breathing room,
+   readable tap targets, and long abstracts kept short until asked for.
+   ========================================================================== */
+
+@media (max-width: 767.98px) {
+    /* --- Publications ------------------------------------------------- */
+
+    /* Collapsed abstract, expanded by assets/js/pub_abstract.js. */
+    .pub-abstract.is-collapsed {
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .pub-abstract-toggle {
+        display: inline-block;
+        margin: 0.35rem 0 0;
+        padding: 0.22rem 0.7rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--link);
+        background-color: var(--surface-alt);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        cursor: pointer;
+    }
+
+    .pub-abstract-toggle:hover,
+    .pub-abstract-toggle:focus-visible {
+        color: var(--link-hover);
+        background-color: var(--surface);
+        border-color: var(--link);
+        outline: none;
+    }
+
+    /* Link labels become comfortable tap targets instead of tiny [text]. */
+    .abstract-links a {
+        display: inline-block;
+        margin: 0.35rem 0.35rem 0 0;
+        padding: 0.28rem 0.7rem;
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--link);
+        background-color: var(--surface-alt);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        text-decoration: none;
+    }
+
+    .abstract-links a:hover,
+    .abstract-links a:focus {
+        color: var(--link-hover);
+        background-color: var(--surface);
+        border-color: var(--link);
+        text-decoration: none;
+    }
+
+    .citation-badge {
+        margin-top: 0.25rem;
+    }
+
+    /* --- News timeline ------------------------------------------------- */
+
+    /* Stack the year above its entries rather than stealing width from them. */
+    .news-card .media {
+        display: block;
+    }
+
+    .news-card .media > .mr-3 {
+        margin: 0 0 0.35rem !important;
+        font-weight: 700;
+        color: var(--text);
+    }
+
+    .news-card .media-body .my-1 {
+        flex-direction: column;
+    }
+
+    .news-card .media-body .my-1 > .ml-auto {
+        margin-left: 0 !important;
+        margin-top: 0.1rem;
+    }
+
+    /* --- Publication cards: keep long titles and metadata readable ----- */
+
+    .item-overlay-mobile .d-flex {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    /* --- Long chart/image thumbnails stay inside the card ------------- */
+
+    .project-item img,
+    .item-overlay-mobile img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 767.98px) {
+    /* Education / experience: put the date on its own line instead of
+       letting it crowd the degree or role. */
+    .card-body .small.d-flex {
+        flex-direction: column;
+    }
+
+    .card-body .small.d-flex > .ml-auto {
+        margin-left: 0 !important;
+        margin-top: 0.15rem;
+    }
 }

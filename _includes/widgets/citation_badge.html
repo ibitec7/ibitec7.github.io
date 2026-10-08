@@ -1,0 +1,34 @@
+{%- comment -%}
+Google Scholar citation badge for one publication.
+
+Counts come from _data/citations.yml, which
+`python3 scripts/fetch_google_scholar_citations.py` regenerates (the scheduled
+GitHub Action keeps it fresh). Nothing is fetched from the browser: Scholar has
+no CORS-enabled API, so a client-side badge would silently fail.
+
+Per-publication front-matter overrides:
+  google_scholar_citations: 12          # pin a count by hand
+  google_scholar_url: https://...       # pin the destination link
+  google_scholar_title: "..."           # match a differently worded Scholar entry
+{%- endcomment -%}
+{%- assign item = include.item -%}
+{%- assign paper = site.data.citations.papers[item.title] -%}
+{%- assign count = paper.citations -%}
+{%- if item.google_scholar_citations -%}
+    {%- assign count = item.google_scholar_citations -%}
+{%- endif -%}
+{%- assign badge_url = paper.cites_url | default: paper.citation_url -%}
+{%- if item.google_scholar_url -%}
+    {%- assign badge_url = item.google_scholar_url -%}
+{%- endif -%}
+{%- if badge_url == nil or badge_url == '' -%}
+    {%- assign query = item.title | url_encode -%}
+    {%- assign badge_url = 'https://scholar.google.com/scholar?hl=en&q=' | append: query -%}
+{%- endif -%}
+{%- assign count = count | times: 1 -%}
+{%- if count and count > 0 -%}
+<a class="citation-badge" href="{{ badge_url }}" target="_blank" rel="noopener"
+   title="Google Scholar: {{ count }} citation{% unless count == 1 %}s{% endunless %} for &quot;{{ paper.scholar_title | default: item.title }}&quot;">
+    <i class="fab fa-google-scholar" aria-hidden="true"></i><span class="citation-badge-text">Cited by</span><span class="citation-badge-count">{{ count }}</span>
+</a>
+{%- endif -%}

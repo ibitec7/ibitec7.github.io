@@ -87,3 +87,34 @@ If you run into **any** issues while using this template, or have suggestions fo
 
 3. Navigate to your created website, and follow the instructions displayed on the homepage (if any) to finalize the setup.
 
+### Citation counts (Google Scholar)
+
+Badges on the publications list and the Google Scholar strip at the top of
+`publications.html` are rendered at build time from `_data/citations.yml`, which
+is produced by scraping your public Scholar profile:
+
+```bash
+python3 scripts/fetch_google_scholar_citations.py
+```
+
+The script reads the profile id from `gscholar` in `_data/profile.yml`, matches
+Scholar entries to your publications by normalized title, and rewrites
+`_data/citations.yml`. Commit that file with the site.
+
+- `python3 scripts/fetch_google_scholar_citations.py --check` — exit non-zero when the data file is stale (useful in CI).
+- `python3 scripts/fetch_google_scholar_citations.py --soft` — exit 0 when Google blocks the request (the scheduled workflow uses this, so a captcha never fails the build).
+- `.github/workflows/update-citations.yml` refreshes the file weekly and on changes under `_publications/`.
+
+Why build time instead of a browser fetch: Google Scholar has no public API and
+sends no CORS headers, so a client-side badge cannot read it. The counts live in
+the committed data file instead, which also means badges render without
+JavaScript and never flicker.
+
+Per-publication front-matter overrides:
+
+```yaml
+google_scholar_citations: 12                  # pin a count by hand (e.g. before Scholar indexes it)
+google_scholar_url: https://scholar.google.com/citations?user=...  # pin the destination
+google_scholar_title: "the exact Scholar entry title"              # match a differently worded entry
+```
+

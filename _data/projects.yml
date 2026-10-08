@@ -47,7 +47,7 @@
 - name: "Indicators CLI"
   language: "Python"
   subtitle: "Open-source command-line tool, published on PyPI"
-  show_on_home: true
+  show_on_home: false
   tags: [CLI, ETL, Finance, PyPI, Testing]
   summary: >-
     Fetches historical prices from Yahoo Finance and computes nine technical
@@ -64,7 +64,7 @@
 - name: "IoT Sensor Simulator"
   language: "Rust"
   subtitle: "Open-source Kubernetes and Kafka deployment"
-  show_on_home: true
+  show_on_home: false
   tags: [Rust, Kafka, Kubernetes, Microservices]
   summary: >-
     Live IoT sensor data is scarce and usually paywalled. This project
@@ -75,9 +75,9 @@
     Code: "https://github.com/ibitec7/iot-simulator"
 
 - name: "SMS Scam Detection: MLOps Pipeline"
-  language: "Jupyter Notebook"
+  language: "Python"
   subtitle: "Tracked, reproducible classification experiments"
-  show_on_home: false
+  show_on_home: true
   image: "/assets/images/projects/sms-spam-detection-poster.png"
   tags: [MLOps, NLP, Scikit-learn, MLflow]
   summary: >-
@@ -91,9 +91,9 @@
     Code: "https://github.com/ibitec7/sms-scams"
 
 - name: "Portfolio Analysis and Optimization"
-  language: "Jupyter Notebook"
+  language: "Python"
   subtitle: "GE2260 · Introduction to Finance · City University of Hong Kong"
-  show_on_home: false
+  show_on_home: true
   image: "/assets/images/projects/portfolio-optimization-poster.png"
   tags: [Quantitative finance, Statistics, Markowitz, Monte Carlo]
   summary: >-
