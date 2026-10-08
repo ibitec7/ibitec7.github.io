@@ -7,6 +7,9 @@ pages:
   url: /publications
 - name: Projects
   url: /projects
+- name: Resume (CV)
+  url: /assets/pdf/Ibrahim_Resume.pdf
+  target: _blank
 # - name: Home (Layout 2)
 #   url: /index_layout2
 # - name: Blog

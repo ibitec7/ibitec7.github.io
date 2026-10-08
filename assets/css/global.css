@@ -625,6 +625,20 @@ html[data-theme="dark"] .news-flag {
     font-weight: 700;
 }
 
+/* Publication links (Paper / arXiv / Code ...): bold and blue so they read
+   as links at a glance, on every screen size. */
+.abstract-links a {
+    font-weight: 700;
+    color: var(--link) !important;
+    text-decoration: none;
+}
+
+.abstract-links a:hover,
+.abstract-links a:focus {
+    color: var(--link-hover) !important;
+    text-decoration: underline;
+}
+
 /* ==========================================================================
    Mobile refinements
    The desktop grid is dense; on phones the same content needs breathing room,

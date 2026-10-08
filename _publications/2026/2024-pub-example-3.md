@@ -2,7 +2,7 @@
 title:          "MaRK: Markov-adapted Recurrent Kernels for Dynamic Operator Conditioning in State Space Models"
 date:           2026-05-05 00:00:00 +0800
 selected:       true
-pub:            "Advances in Neural Information Processing Systems 40 (NeurIPS 2026) — Poster"
+pub:            "Advances in Neural Information Processing Systems 39 (NeurIPS 2026) — Poster"
 #  pub_pre:        "Submitted to NeurIPS 2026"
 #  pub_post:       'Pending decision.'
 # pub_last:       ' <span class="badge badge-pill badge-publication badge-success">Spotlight</span>'
