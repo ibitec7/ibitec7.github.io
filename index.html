@@ -2,13 +2,14 @@
 layout: default
 title : Homepage
 navbar_title: Home
+container_class: container-xl
 ---
 
-<div class="row">
-    <div class="col-lg-3 col-md-4">
+<div class="row home-row">
+    <div class="col-lg-3 col-md-4 home-side">
         {% include widgets/profile_card_mini.html %}
     </div>
-    <div class="col-lg-9 col-md-8">
+    <div class="col-lg-9 col-md-8 home-main">
 
         {% include widgets/profile_card_bio_only.html %}
 

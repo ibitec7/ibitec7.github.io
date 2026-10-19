@@ -8,42 +8,96 @@
    ========================================================================== */
 
 :root {
-    --page-bg: #f8f9fa;
-    --surface: #ffffff;
-    --surface-alt: #f1f3f5;
-    --text: #212529;
-    --text-muted: #6c757d;
-    --border: rgba(0, 0, 0, 0.08);
-    --border-strong: #dee2e6;
-    --navbar-bg: rgba(255, 255, 255, 0.62);
-    --link: #007bff;
-    --link-hover: #0056b3;
-    --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-    --shadow-md: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.10);
-    --gh-ring: #212529;
+    color-scheme: light;
+
+    /* --- Canvas -------------------------------------------------------- */
+    /* The ambient field is what the glass actually refracts: without a
+       coloured, non-flat backdrop, blur() has nothing to work with. */
+    --page-bg: #dfe4ec;
+    --ambient:
+        radial-gradient(1250px 820px at 4% -12%, rgba(58, 118, 255, 0.62), transparent 62%),
+        radial-gradient(1050px 700px at 98% -2%, rgba(150, 82, 255, 0.52), transparent 58%),
+        radial-gradient(980px 760px at 46% 116%, rgba(0, 184, 172, 0.42), transparent 64%),
+        radial-gradient(820px 620px at 76% 34%, rgba(255, 112, 186, 0.30), transparent 66%),
+        radial-gradient(700px 520px at 24% 72%, rgba(120, 170, 255, 0.34), transparent 68%);
+
+    /* --- Glass system -------------------------------------------------- */
+    --radius: 1rem;
+    --glass: rgba(255, 255, 255, 0.58);
+    --glass-strong: rgba(255, 255, 255, 0.78);
+    --glass-soft: rgba(255, 255, 255, 0.42);
+    --glass-blur: 22px;
+    --glass-saturate: 170%;
+    --glass-border: rgba(255, 255, 255, 0.78);
+    /* Frosted grit, painted with `background-blend-mode: overlay` so the
+       speckle both lifts and darkens around the fill: texture without the
+       panel drifting greyer or losing its whiteness. */
+    --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)' opacity='0.62'/%3E%3C/svg%3E");
+    --glass-sheen:
+        inset 0 1px 0 rgba(255, 255, 255, 0.85),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.28);
+    --glass-edge: rgba(255, 255, 255, 0.95);
+
+    /* Aliases kept so every existing rule inherits the glass treatment. */
+    --surface: var(--glass);
+    --surface-alt: var(--glass-soft);
+    --surface-solid: #ffffff;
+
+    --text: #10151b;
+    --text-muted: #525d6a;
+    --border: rgba(16, 21, 27, 0.10);
+    --border-strong: rgba(16, 21, 27, 0.16);
+    --navbar-bg: rgba(255, 255, 255, 0.52);
+    --link: #0063d1;
+    --link-hover: #0044a0;
+    --shadow-sm: 0 1px 2px rgba(12, 20, 34, 0.05), 0 10px 26px -14px rgba(12, 20, 34, 0.30);
+    --shadow-md: 0 2px 6px rgba(12, 20, 34, 0.06), 0 26px 54px -22px rgba(12, 20, 34, 0.38);
+    --gh-ring: #10151b;
     --gh-cat: #ffffff;
-    --code-bg: #f1f3f5;
-    --highlight: #fff8e1;
-    --highlight-border: #ffd54f;
+    --code-bg: rgba(255, 255, 255, 0.52);
+    --highlight: rgba(255, 236, 168, 0.66);
+    --highlight-border: #dcae3a;
 }
 
 html[data-theme="dark"] {
-    --page-bg: #0d1117;
-    --surface: #161b22;
-    --surface-alt: #1c2129;
-    --text: #e6edf3;
-    --text-muted: #9aa5b1;
-    --border: rgba(240, 246, 252, 0.10);
-    --border-strong: #30363d;
-    --navbar-bg: rgba(13, 17, 23, 0.72);
-    --link: #6ea8ff;
-    --link-hover: #9cc4ff;
-    --shadow-sm: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.45);
-    --shadow-md: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.55);
-    --gh-ring: #e6edf3;
-    --gh-cat: #161b22;
-    --code-bg: #1c2129;
-    --highlight: #2a2411;
+    color-scheme: dark;
+
+    /* --- Canvas: black, not blue-grey ---------------------------------- */
+    --page-bg: #020308;
+    --ambient:
+        radial-gradient(1250px 820px at 6% -12%, rgba(46, 104, 235, 0.60), transparent 60%),
+        radial-gradient(1050px 740px at 97% -6%, rgba(138, 52, 230, 0.46), transparent 58%),
+        radial-gradient(1000px 780px at 44% 116%, rgba(0, 200, 190, 0.30), transparent 62%),
+        radial-gradient(820px 640px at 78% 36%, rgba(196, 60, 140, 0.20), transparent 66%),
+        radial-gradient(760px 560px at 22% 74%, rgba(30, 80, 200, 0.28), transparent 68%);
+
+    /* --- Glass system -------------------------------------------------- */
+    --glass: rgba(17, 22, 29, 0.54);
+    --glass-strong: rgba(24, 30, 38, 0.80);
+    --glass-soft: rgba(26, 32, 41, 0.42);
+    --glass-border: rgba(255, 255, 255, 0.13);
+    /* Dark mode keeps roughly half the light-mode grain: enough to break the
+       flat fill, not enough to haze the type. */
+    --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)' opacity='0.34'/%3E%3C/svg%3E");
+    --glass-sheen:
+        inset 0 1px 0 rgba(255, 255, 255, 0.09),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.45);
+    --glass-edge: rgba(255, 255, 255, 0.06);
+
+    --surface-solid: #080b11;
+    --text: #e8eef6;
+    --text-muted: #8e9bab;
+    --border: rgba(255, 255, 255, 0.07);
+    --border-strong: rgba(255, 255, 255, 0.13);
+    --navbar-bg: rgba(4, 6, 11, 0.60);
+    --link: #6fb2ff;
+    --link-hover: #a6cdff;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.55), 0 12px 32px -16px rgba(0, 0, 0, 0.95);
+    --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.60), 0 32px 64px -26px rgba(0, 0, 0, 1);
+    --gh-ring: #e8eef6;
+    --gh-cat: #0f141b;
+    --code-bg: rgba(255, 255, 255, 0.045);
+    --highlight: rgba(122, 94, 20, 0.38);
     --highlight-border: #8a6d1f;
 }
 
@@ -51,16 +105,39 @@ html[data-theme="dark"] {
    Base
    ========================================================================== */
 
+/* The ambient field is a fixed layer behind everything: the glass panels
+   blur whatever sits under them, and it must not scroll away from them. It
+   lives on html::before (negative z-index paints above the root background
+   but below all content) so no other element needs a stacking context. */
+html {
+    background-color: var(--page-bg);
+}
+
+html::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-color: var(--page-bg);
+    background-image: var(--ambient);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
     padding-top: 5.0rem;
-    background-color: var(--page-bg);
+    background-color: transparent;
     color: var(--text);
+    -webkit-font-smoothing: antialiased;
 }
 
+/* Bootstrap paints .bg-light with !important; the canvas glow must show
+   through, so the body stays transparent. */
 body.bg-light {
-    background-color: var(--page-bg) !important;
+    background-color: transparent !important;
 }
 
 a {
@@ -253,14 +330,86 @@ html[data-theme="dark"] .scholar-summary-brand i {
 }
 
 /* ==========================================================================
+   Glass surfaces
+   One recipe, applied to every panel: translucent fill + backdrop blur +
+   a hairline sheen along the top edge so the pane reads as a physical sheet
+   rather than a flat tint.
+   ========================================================================== */
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    /* Opaque fallback: keep text readable where blur is unavailable. */
+    :root { --glass: #ffffff; --glass-soft: #f4f6f9; --glass-strong: #ffffff; }
+    html[data-theme="dark"] { --glass: #11151c; --glass-soft: #161b23; --glass-strong: #171c24; }
+}
+
+.card,
+.modal-content,
+.bg-white,
+.scholar-summary,
+.news-card,
+.item-overlay-mobile,
+pre {
+    background-color: var(--glass) !important;
+    /* Grain sits in the element's own background layer, so it never crosses
+       the text the way an overlay pseudo-element would. */
+    background-image: var(--grain);
+    background-repeat: repeat;
+    background-blend-mode: overlay;
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    border: 1px solid var(--glass-border) !important;
+    box-shadow: var(--shadow-sm), var(--glass-sheen);
+    color: var(--text);
+}
+
+/* Bigger panels get the deeper shadow and a slightly rounder corner. */
+.card {
+    border-radius: var(--radius) !important;
+    transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.card:hover {
+    box-shadow: var(--shadow-md), var(--glass-sheen);
+}
+
+/* Small glass chips sit on top of card glass: lighter fill, no second blur
+   layer (nested blur is expensive and invisible at this size). */
+.citation-badge,
+.project-tag,
+.pub-abstract-toggle {
+    background-color: var(--glass-soft) !important;
+    background-image: var(--grain);
+    background-blend-mode: overlay;
+    -webkit-backdrop-filter: blur(8px) saturate(140%);
+    backdrop-filter: blur(8px) saturate(140%);
+    border: 1px solid var(--glass-border) !important;
+    box-shadow: inset 0 1px 0 var(--glass-edge);
+}
+
+.citation-badge:hover,
+.citation-badge:focus-visible,
+.pub-abstract-toggle:hover,
+.pub-abstract-toggle:focus-visible {
+    background-color: var(--glass-strong) !important;
+    box-shadow: var(--shadow-sm), inset 0 1px 0 var(--glass-edge);
+}
+
+/* Figures lifted from papers keep an opaque matte so plots are not tinted by
+   whatever glow sits behind the card. No grain here: it would sit on the image. */
+.project-figure {
+    background-color: var(--surface-solid) !important;
+    background-image: none;
+    border: 1px solid var(--glass-border);
+    box-shadow: inset 0 1px 0 var(--glass-edge);
+}
+
+/* ==========================================================================
    Surfaces, borders and Bootstrap overrides (light + dark)
    ========================================================================== */
 
 .card,
 .bg-white,
 .modal-content {
-    background-color: var(--surface) !important;
-    border-color: var(--border) !important;
     color: var(--text);
 }
 
@@ -345,9 +494,15 @@ select {
     color: #fff;
 }
 
+/* Footer floats as its own pane instead of a full-bleed band. */
 .footer {
-    background-color: var(--surface) !important;
-    border-top-color: var(--border-strong) !important;
+    background-color: var(--glass) !important;
+    background-image: var(--grain);
+    background-blend-mode: overlay;
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    border-top: 1px solid var(--glass-border) !important;
+    box-shadow: var(--glass-sheen);
 }
 
 .footer .text-muted {
@@ -364,11 +519,14 @@ select {
    Navbar + theme toggle
    ========================================================================== */
 
+/* The navbar is the thickest sheet in the stack: more blur, more milkiness,
+   and a bright top highlight where the light catches the edge. */
 .navbar {
     background-color: var(--navbar-bg) !important;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border);
+    -webkit-backdrop-filter: blur(26px) saturate(190%);
+    backdrop-filter: blur(26px) saturate(190%);
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: var(--glass-sheen), 0 8px 32px -24px rgba(0, 0, 0, 0.55);
 }
 
 .navbar-light .navbar-brand,
@@ -442,8 +600,9 @@ select {
 .theme-toggle:hover,
 .theme-toggle:focus {
     color: var(--text);
-    border-color: var(--text-muted);
-    background-color: var(--surface);
+    border-color: var(--glass-border);
+    background-color: var(--glass-strong);
+    box-shadow: inset 0 1px 0 var(--glass-edge);
     outline: none;
 }
 
@@ -462,6 +621,24 @@ html[data-theme="dark"] .theme-toggle .theme-toggle-moon {
 
 html[data-theme="dark"] .theme-toggle .theme-toggle-sun {
     display: inline-block;
+}
+
+/* ==========================================================================
+   Home layout
+   The profile column is sized so "Syed Ibrahim Omer" stays on one line at
+   every desktop width; the old col-lg-3 left it 235px wide, which wrapped.
+   ========================================================================== */
+
+@media (min-width: 992px) {
+    .home-row > .home-side {
+        flex: 0 0 312px;
+        max-width: 312px;
+    }
+
+    .home-row > .home-main {
+        flex: 1 1 0%;
+        max-width: calc(100% - 312px);
+    }
 }
 
 /* ==========================================================================
@@ -497,6 +674,24 @@ html[data-theme="dark"] .theme-toggle .theme-toggle-sun {
     color: var(--gh-ring);
 }
 
+/* alphaXiv: the brand mark is 1.42:1, so it needs more width than a square
+   glyph to read at the same optical size. Official red is too dark on black,
+   hence the lighter tint in dark mode. */
+.social-link-alphaxiv,
+.social-link-alphaxiv:hover {
+    color: #a83a3c;
+}
+
+.social-link-alphaxiv .social-icon {
+    width: 1.45em;
+    height: 1em;
+}
+
+html[data-theme="dark"] .social-link-alphaxiv,
+html[data-theme="dark"] .social-link-alphaxiv:hover {
+    color: #d07175;
+}
+
 /* LinkedIn and ORCID keep their official brand colours in both themes. */
 .social-link-linkedin,
 .social-link-linkedin:hover {
@@ -508,8 +703,43 @@ html[data-theme="dark"] .theme-toggle .theme-toggle-sun {
     color: #a6ce39;
 }
 
-.social-row .social-link {
-    margin: 0 0.25rem;
+/* Profile card: more air between the portrait and the name. */
+.home-side .figure {
+    margin-bottom: 1.55rem;
+}
+
+/* The address needed 238px in a 232px content box and broke after the dash.
+   12px monospace fits it on one line. */
+.home-side .email-text {
+    font-size: 0.75rem;
+    white-space: nowrap;
+}
+
+/* Social chips. Five brand marks plus a 1.34:1 alphaXiv glyph do not fit the
+   card's 232px content box once the gaps get generous, so the row drops its
+   inline whitespace (font-size: 0) and every gap is exactly the margin. */
+.social-row {
+    white-space: nowrap;
+}
+
+.home-side .social-row {
+    font-size: 0;
+}
+
+.home-side .social-row .social-link {
+    margin: 0 7px;
+    padding: 0 !important;
+}
+
+.home-side .social-row .social-icon {
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+    line-height: 24px;
+}
+
+.home-side .social-row .social-link-alphaxiv .social-icon {
+    width: 34px;
 }
 
 /* ==========================================================================
