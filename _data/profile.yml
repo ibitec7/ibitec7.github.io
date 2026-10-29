@@ -23,7 +23,7 @@ orcid: 0009-0004-6630-5402
 short_bio_text_justify: true
 short_bio: >-
   <p>
-    I am an undergraduate researcher in Data Science at the City University of Hong Kong and a research-track Student Ambassador at the NVIDIA AI Technology Center Hong Kong. I study neural architectures at the operator level: what each operator does to its inputs under the data's native measure, rather than where its parameters sit in a coordinate frame. That view covers problems which otherwise look separate, including context conditioning, low-bit quantization, MoE routing, model compression, and behavioural bounds. It replaces weight-space distance proxies with operator action as the invariant a transformation must respect, so a modification carries a guarantee rather than an empirical hope.
+    I am an undergraduate researcher in Data Science at the City University of Hong Kong and a research-track Student Ambassador at the NVIDIA AI Technology Center Hong Kong. My research is function-space analysis of sequence models: I study the operator a network's parameters denote and how it acts on inputs, rather than the arrangement of the weights themselves. Using this, I explore and design architectural modifications that enable new capabilities, and establish when such a change provably preserves a model's existing behaviour. I apply this approach to context conditioning, low-precision training, mixture-of-experts routing, PEFT, etc.
   </p>
 
 portrait_url: /assets/images/photos/portrait.jpg
