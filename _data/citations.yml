@@ -2,7 +2,7 @@
 # Refresh with:  python3 scripts/fetch_google_scholar_citations.py
 source: google_scholar
 scholar_id: "s3JJuo8AAAAJ"
-generated_at: "2026-10-08T16:24:11Z"
+generated_at: "2026-11-09T16:27:35Z"
 profile:
   name: "Syed Ibrahim Omer"
   cited_by: 4
@@ -18,3 +18,11 @@ papers:
     venue: "arXiv preprint arXiv:2504.18966, 2025"
     citation_url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=s3JJuo8AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=s3JJuo8AAAAJ:u5HHmVD_uO8C"
     cites_url: "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1486360918000552009"
+  "MaRK: Markov-adapted Recurrent Kernels for Dynamic Operator Conditioning in State Space Models":
+    scholar_title: "MaRK: Markov-adapted Recurrent Kernels for Dynamic Operator Conditioning in State Space Models"
+    citations: 0
+    year: "2026"
+    authors: "SI Omer, GY Wong, X Zhao"
+    venue: "arXiv preprint arXiv:2610.09092, 2026"
+    citation_url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=s3JJuo8AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=s3JJuo8AAAAJ:Y0pCki6q_DkC"
+    cites_url: ""
